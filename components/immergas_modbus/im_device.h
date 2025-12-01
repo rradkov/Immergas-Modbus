@@ -26,9 +26,17 @@ class IM_Device : public Component {
   void set_controller(class ImmergasModbus *ctrl) { this->controller_ = ctrl; }
   class ImmergasModbus *get_controller() const { return this->controller_; }
 
-  // Controller pointer (set by the controller on registration)
-  void set_controller(class ImmergasModbus *ctrl) { this->controller_ = ctrl; }
-  class ImmergasModbus *get_controller() const { return this->controller_; }
+  // Parse the numeric Modbus slave id from the configured address string.
+  // Address format expected: "<slave>[.<...>]", e.g. "20.00.00" -> 20
+  uint16_t parse_slave() const {
+    size_t pos = this->address_.find('.');
+    try {
+      if (pos != std::string::npos) return static_cast<uint16_t>(std::stoi(this->address_.substr(0, pos)));
+      return static_cast<uint16_t>(std::stoi(this->address_));
+    } catch (...) {
+      return 0;
+    }
+  }
 
  protected:
   std::string address_;

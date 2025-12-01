@@ -1,0 +1,102 @@
+esphome:
+  name: immergas_prio
+  platform: ESP32
+  board: esp32dev
+
+logger:
+  level: DEBUG
+
+uart:
+  id: uart_bus
+  tx_pin: GPIO17
+  rx_pin: GPIO16
+  baud_rate: 9600
+  parity: EVEN
+
+immergas_modbus:
+  id: im_controller
+  client:
+    id: im_client
+    # flow control (DE) pin for RS-485 driver if needed
+    # flow_control_pin: GPIO5
+  debug_log_messages: true
+  language: en
+  devices:
+    - id: boiler_device
+      address: "20.00.00"
+
+# Prioritized sensors (read-only): DHW, flow temps, outdoor, room temps
+sensor:
+  - platform: immergas_modbus
+    id: sensor_outdoor_temp
+    message: 3002
+    controller: im_controller
+
+  - platform: immergas_modbus
+    id: sensor_water_temp
+    message: 3016
+    controller: im_controller
+
+  - platform: immergas_modbus
+    id: sensor_boiler_status
+    message: 2000
+    controller: im_controller
+
+  - platform: immergas_modbus
+    id: sensor_room_temp_1
+    message: 2011
+    controller: im_controller
+
+# Numbers (setpoints / controls)
+number:
+  - platform: immergas_modbus
+    id: number_set_flow
+    message: 2217
+    controller: im_controller
+    device: boiler_device
+    min_value: 5.0
+    max_value: 85.0
+    step: 1.0
+
+  - platform: immergas_modbus
+    id: number_set_comfort
+    message: 2210
+    controller: im_controller
+    device: boiler_device
+    min_value: 15.0
+    max_value: 35.0
+    step: 0.1
+
+  - platform: immergas_modbus
+    id: number_water_temp_set
+    message: 2095
+    controller: im_controller
+    device: boiler_device
+    min_value: 30.0
+    max_value: 85.0
+    step: 0.5
+
+# Switches (example: heating request / enable)
+switch:
+  - platform: immergas_modbus
+    id: switch_heating_request
+    message: 2010
+    controller: im_controller
+    device: boiler_device
+
+# Example: optionally add selects for modes if you provide options mapping
+# select:
+#   - platform: immergas_modbus
+#     id: select_eco_mode
+#     message: 2010
+#     controller: im_controller
+#     device: boiler_device
+#     options: ["comfort", "economy", "manual"]
+
+time:
+  - platform: sntp
+    id: sntp_time
+
+api:
+
+ota:

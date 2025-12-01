@@ -57,7 +57,7 @@ sensor:
     update_interval: 10s
     id: flow_temp_delta
 
-# Energy / Power (from Samsung mapping where available)
+# Energy / Power
   - platform: immergas_modbus
     message: 0x8414
     name: "Total Energy Consumed"
@@ -108,7 +108,7 @@ sensor:
 # Binary / Status
 binary_sensor:
   - platform: immergas_modbus
-    message: 0x8010   # Compressor Status (example)
+    message: 0x8010   # Compressor Status (real mapped value)
     name: "Compressor Status"
     device_id: immergas_dev_10
 
