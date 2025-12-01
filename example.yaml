@@ -1,0 +1,156 @@
+esphome:
+  name: immergas_hp
+  platform: ESP32
+  board: esp32dev
+
+logger:
+  level: DEBUG
+
+uart:
+  id: uart1
+  tx_pin: GPIO17
+  rx_pin: GPIO16
+  baud_rate: 9600
+  parity: EVEN
+
+# Immergas Modbus integration configuration
+immergas_modbus:
+  id: immergas_controller
+  client:
+    id: immergas_client
+  debug_log_messages: true
+  language: en
+  devices:
+    - id: immergas_dev_20
+      address: "20.00.00"
+    - id: immergas_dev_10
+      address: "10.00.00"
+
+# --- Important entities (auto-generated and hand-picked) ---
+# Domestic Hot Water (DHW)
+sensor:
+  - platform: immergas_modbus
+    message: 0xBC8   # PDU 3016: DWH Current Temperature
+    name: "DHW Current Temperature"
+    device_id: immergas_dev_20
+
+  - platform: immergas_modbus
+    message: 0xBB2   # PDU 3002: Outdoor Temperature (used elsewhere)
+    name: "Outdoor Temperature"
+    device_id: immergas_dev_20
+
+  - platform: immergas_modbus
+    message: 0x4238  # Flow Temp Out (example)
+    name: "Flow Temperature Out"
+    device_id: immergas_dev_20
+
+  - platform: immergas_modbus
+    message: 0x4236  # Flow Temp Return (example)
+    name: "Flow Temperature Return"
+    device_id: immergas_dev_20
+
+# Flow Temp Delta (calculated)
+  - platform: template
+    name: "Flow Temp Delta"
+    lambda: |-
+      return id(flow_temp_out).state - id(flow_temp_return).state;
+    update_interval: 10s
+    id: flow_temp_delta
+
+# Energy / Power (from Samsung mapping where available)
+  - platform: immergas_modbus
+    message: 0x8414
+    name: "Total Energy Consumed"
+    device_id: immergas_dev_10
+
+  - platform: immergas_modbus
+    message: 0x4427
+    name: "Total Energy Produced"
+    device_id: immergas_dev_20
+
+  - platform: immergas_modbus
+    message: 0x8413
+    name: "Power Consumed Last Minute"
+    id: power_consumed_last_min
+    device_id: immergas_dev_10
+
+  - platform: immergas_modbus
+    message: 0x4426
+    name: "Power Produced Last Minute"
+    id: power_generated_last_min
+    device_id: immergas_dev_20
+
+# COP calculations (templates)
+  - platform: template
+    name: "COP - Instant"
+    lambda: |-
+      if (id(power_consumed_last_min).state <= 0) return 0.0;
+      return id(power_generated_last_min).state / id(power_consumed_last_min).state;
+    update_interval: 10s
+    id: cop_instant
+
+  - platform: template
+    name: "COP - Total"
+    lambda: |-
+      if (id(total_energy_consumed).state <= 0) return 0.0;
+      return id(total_energy_produced).state / id(total_energy_consumed).state;
+    update_interval: 300s
+    id: cop_total
+
+  - platform: template
+    name: "COP - Daily"
+    lambda: |-
+      if (id(daily_energy_consumed).state <= 0) return 0.0;
+      return id(daily_heat_generated).state / id(daily_energy_consumed).state;
+    update_interval: 300s
+    id: cop_daily
+
+# Binary / Status
+binary_sensor:
+  - platform: immergas_modbus
+    message: 0x8010   # Compressor Status (example)
+    name: "Compressor Status"
+    device_id: immergas_dev_10
+
+# Numbers / Setpoints
+number:
+  - platform: immergas_modbus
+    message: 0x82F   # PDU 2095: DWH Target
+    name: "DHW Target Temperature"
+    min_value: 20.0
+    max_value: 80.0
+    step: 0.1
+    device_id: immergas_dev_20
+
+  - platform: immergas_modbus
+    message: 0x7DF   # PDU 2015: Zone 1 Target Temp
+    name: "Zone 1 Target Temperature"
+    min_value: 5.0
+    max_value: 35.0
+    step: 0.1
+    device_id: immergas_dev_20
+
+# Switch / Modes
+select:
+  - platform: immergas_modbus
+    message: 0x7D0   # Operating Mode (placeholder PDU)
+    name: "Operating Mode"
+    options: ["Off", "DWH", "Summer", "Winter"]
+    device_id: immergas_dev_20
+
+switch:
+  - platform: immergas_modbus
+    message: 0x7D1
+    name: "Boiler Enabled"
+    device_id: immergas_dev_20
+
+# Daily totals (requires power sensors defined above)
+total_daily_energy:
+  - id: daily_energy_consumed
+    name: "Daily Energy Consumed"
+    power_id: power_consumed_last_min
+
+  - id: daily_heat_generated
+    name: "Daily Heat Generated"
+    power_id: power_generated_last_min
+

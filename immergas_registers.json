@@ -1,0 +1,3351 @@
+{
+  "generated_at": "2025-12-01T21:31:20.593425Z",
+  "source_cfg": "\\\\vmware-host\\Shared Folders\\GitHub\\dominus\\CFG-WFC01_IM_MBUS.json",
+  "source_lbl": "\\\\vmware-host\\Shared Folders\\GitHub\\dominus\\LBL-WFC01_IM_MBUS.json",
+  "pdus": [
+    {
+      "pdu": 2000,
+      "views": [
+        {
+          "item": "mb-boiler-status",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "mb-boiler-status",
+          "return": [
+            "u16"
+          ]
+        },
+        {
+          "item": "mb-boiler-status",
+          "data": [
+            [
+              "u16",
+              "mb-boiler-status"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2001,
+      "views": [
+        {
+          "item": "mb-functional-log",
+          "check": {
+            "data": [
+              "LB",
+              "flag8",
+              "2"
+            ],
+            "match": [
+              "1"
+            ]
+          },
+          "value": [
+            "enabled"
+          ],
+          "else-value": [
+            "disabled"
+          ]
+        },
+        {
+          "item": "mb-water-request",
+          "check": {
+            "data": [
+              "LB",
+              "flag8",
+              "0"
+            ],
+            "match": [
+              "1"
+            ]
+          },
+          "value": [
+            "on"
+          ],
+          "else-value": [
+            "off"
+          ],
+          "return": [
+            "LB",
+            "flag8",
+            "0"
+          ]
+        }
+      ],
+      "commands": [],
+      "messages": [
+        {
+          "action": "read"
+        }
+      ]
+    },
+    {
+      "pdu": 2100,
+      "views": [
+        {
+          "item": "mb-functional-log",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [],
+      "messages": [
+        {
+          "action": "read"
+        }
+      ]
+    },
+    {
+      "pdu": 2101,
+      "views": [
+        {
+          "item": "reset",
+          "check": {
+            "data": [
+              "LB",
+              "flag8",
+              "1"
+            ],
+            "match": [
+              "1"
+            ]
+          },
+          "value": [
+            "enabled"
+          ],
+          "else-value": [
+            "disabled"
+          ]
+        }
+      ],
+      "commands": [],
+      "messages": [
+        {
+          "action": "read"
+        }
+      ]
+    },
+    {
+      "pdu": 2490,
+      "views": [
+        {
+          "item": "mb-water-time-slot",
+          "check": {
+            "data": [
+              "u16"
+            ],
+            "match": "0"
+          },
+          "value": [
+            "disabled"
+          ],
+          "else-value": [
+            "enabled"
+          ]
+        },
+        {
+          "item": "weekday-1-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-1-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-1-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2011,
+      "views": [
+        {
+          "item": "mb-room-temp-zn1",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        }
+      ],
+      "commands": [],
+      "messages": [
+        {
+          "action": "read"
+        }
+      ]
+    },
+    {
+      "pdu": 2021,
+      "views": [
+        {
+          "item": "mb-room-temp-zn2",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        }
+      ],
+      "commands": [],
+      "messages": [
+        {
+          "action": "read"
+        }
+      ]
+    },
+    {
+      "pdu": 2031,
+      "views": [
+        {
+          "item": "mb-room-temp-zn3",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        }
+      ],
+      "commands": [],
+      "messages": [
+        {
+          "action": "read"
+        }
+      ]
+    },
+    {
+      "pdu": 2041,
+      "views": [
+        {
+          "item": "mb-room-temp-zn4",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        }
+      ],
+      "commands": [],
+      "messages": [
+        {
+          "action": "read"
+        }
+      ]
+    },
+    {
+      "pdu": 2015,
+      "views": [
+        {
+          "item": "mb-room-temp-set-zn1",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp-set",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp-set",
+          "value": [
+            "on",
+            "blinkon"
+          ],
+          "return": [
+            "temp"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "mb-room-temp-set",
+          "value": [
+            "on",
+            "blinkon"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp-set",
+          "data": [
+            [
+              "temp",
+              "mb-room-temp-set"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2025,
+      "views": [
+        {
+          "item": "mb-room-temp-set-zn2",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp-set",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp-set",
+          "value": [
+            "on",
+            "blinkon"
+          ],
+          "return": [
+            "temp"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "mb-room-temp-set",
+          "value": [
+            "on",
+            "blinkon"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp-set",
+          "data": [
+            [
+              "temp",
+              "mb-room-temp-set"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2035,
+      "views": [
+        {
+          "item": "mb-room-temp-set-zn3",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp-set",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp-set",
+          "value": [
+            "on",
+            "blinkon"
+          ],
+          "return": [
+            "temp"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "mb-room-temp-set",
+          "value": [
+            "on",
+            "blinkon"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp-set",
+          "data": [
+            [
+              "temp",
+              "mb-room-temp-set"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2045,
+      "views": [
+        {
+          "item": "mb-room-temp-set-zn4",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp-set",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp-set",
+          "value": [
+            "on",
+            "blinkon"
+          ],
+          "return": [
+            "temp"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "mb-room-temp-set",
+          "value": [
+            "on",
+            "blinkon"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-room-temp-set",
+          "data": [
+            [
+              "temp",
+              "mb-room-temp-set"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 3016,
+      "views": [
+        {
+          "item": "mb-water-temp",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        }
+      ],
+      "commands": [],
+      "messages": [
+        {
+          "action": "read"
+        }
+      ]
+    },
+    {
+      "pdu": 2095,
+      "views": [
+        {
+          "item": "mb-water-temp-set",
+          "value": [
+            "off",
+            "blinkoff"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-water-temp-set",
+          "value": [
+            "off",
+            "blinkon"
+          ],
+          "return": [
+            "temp"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "mb-water-temp-set",
+          "value": [
+            "off",
+            "blinkon"
+          ],
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-water-temp-set",
+          "data": [
+            [
+              "temp",
+              "mb-water-temp-set"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2010,
+      "views": [
+        {
+          "item": "mb-heating-request",
+          "check": {
+            "data": [
+              "LB",
+              "flag8",
+              "3"
+            ],
+            "match": [
+              "1"
+            ]
+          },
+          "value": [
+            "on",
+            "enabled"
+          ],
+          "else-value": [
+            "off",
+            "disabled"
+          ],
+          "return": [
+            "LB",
+            "flag8",
+            "3"
+          ]
+        },
+        {
+          "item": "mb-eco-mode",
+          "check": {
+            "data": [
+              "LB",
+              "flag8",
+              "267"
+            ],
+            "match": [
+              "010",
+              "001",
+              "100"
+            ],
+            "match-return": [
+              "comfort",
+              "economy",
+              "manual"
+            ]
+          },
+          "value": [
+            "on",
+            "enabled"
+          ],
+          "else-value": [
+            "off",
+            "disabled"
+          ]
+        }
+      ],
+      "commands": [],
+      "messages": [
+        {
+          "action": "read"
+        }
+      ]
+    },
+    {
+      "pdu": 3002,
+      "views": [
+        {
+          "item": "mb-outdoor-temp",
+          "return": [
+            "temp"
+          ]
+        },
+        {
+          "item": "mb-outdoor-temp",
+          "check": {
+            "data": [
+              "s16"
+            ],
+            "match": -9999
+          },
+          "value": [
+            "disabled"
+          ],
+          "else-value": [
+            "enabled"
+          ]
+        }
+      ],
+      "commands": [],
+      "messages": [
+        {
+          "action": "read"
+        }
+      ]
+    },
+    {
+      "pdu": 2020,
+      "views": [
+        {
+          "item": "mb-heating-request",
+          "check": {
+            "data": [
+              "LB",
+              "flag8",
+              "3"
+            ],
+            "match": [
+              "1"
+            ]
+          },
+          "value": [
+            "on",
+            "enabled"
+          ],
+          "else-value": [
+            "off",
+            "disabled"
+          ],
+          "return": [
+            "LB",
+            "flag8",
+            "3"
+          ]
+        },
+        {
+          "item": "mb-eco-mode",
+          "check": {
+            "data": [
+              "LB",
+              "flag8",
+              "267"
+            ],
+            "match": [
+              "010",
+              "001",
+              "100"
+            ],
+            "match-return": [
+              "comfort",
+              "economy",
+              "manual"
+            ]
+          },
+          "value": [
+            "on",
+            "enabled"
+          ],
+          "else-value": [
+            "off",
+            "disabled"
+          ]
+        }
+      ],
+      "commands": [],
+      "messages": [
+        {
+          "action": "read"
+        }
+      ]
+    },
+    {
+      "pdu": 2030,
+      "views": [
+        {
+          "item": "mb-heating-request",
+          "check": {
+            "data": [
+              "LB",
+              "flag8",
+              "3"
+            ],
+            "match": [
+              "1"
+            ]
+          },
+          "value": [
+            "on",
+            "enabled"
+          ],
+          "else-value": [
+            "off",
+            "disabled"
+          ],
+          "return": [
+            "LB",
+            "flag8",
+            "3"
+          ]
+        }
+      ],
+      "commands": [],
+      "messages": [
+        {
+          "action": "read"
+        }
+      ]
+    },
+    {
+      "pdu": 2040,
+      "views": [
+        {
+          "item": "mb-heating-request",
+          "check": {
+            "data": [
+              "LB",
+              "flag8",
+              "3"
+            ],
+            "match": [
+              "1"
+            ]
+          },
+          "value": [
+            "on",
+            "enabled"
+          ],
+          "else-value": [
+            "off",
+            "disabled"
+          ],
+          "return": [
+            "LB",
+            "flag8",
+            "3"
+          ]
+        }
+      ],
+      "commands": [],
+      "messages": [
+        {
+          "action": "read"
+        }
+      ]
+    },
+    {
+      "pdu": 2210,
+      "views": [
+        {
+          "item": "set-1",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Comfort Risc.",
+          "label-en": "Set Comfort Heat",
+          "label-cs": "Nastavení vytápění komfort",
+          "step": 0.1,
+          "min": 15,
+          "max": 35
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-1",
+          "data": [
+            [
+              "temp",
+              "set-1"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2211,
+      "views": [
+        {
+          "item": "set-2",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Eco Risc.",
+          "label-en": "Set Eco Heat",
+          "label-cs": "Nastavení vytápění útlum",
+          "step": 0.1,
+          "min": 5,
+          "max": 25
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-2",
+          "data": [
+            [
+              "temp",
+              "set-2"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2214,
+      "views": [
+        {
+          "item": "set-5",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Comfort Raff.",
+          "label-en": "Set Comfort Cool",
+          "label-cs": "Nastavení chlazení komfort",
+          "step": 0.1,
+          "min": 15,
+          "max": 35
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-5",
+          "data": [
+            [
+              "temp",
+              "set-5"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2215,
+      "views": [
+        {
+          "item": "set-6",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Eco Raff.",
+          "label-en": "Set Eco Cool",
+          "label-cs": "Nastavení chlazení útlum",
+          "step": 0.1,
+          "min": 15,
+          "max": 35
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-6",
+          "data": [
+            [
+              "temp",
+              "set-6"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2216,
+      "views": [
+        {
+          "item": "set-7",
+          "suffix": " %",
+          "return": [
+            "LB",
+            "u8"
+          ],
+          "label-it": "Set Umidità",
+          "label-en": "Set Umidity",
+          "label-cs": "Nastavení vlhkosti",
+          "step": 1,
+          "min": 30,
+          "max": 70
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-7",
+          "data": [
+            [
+              "LB",
+              "u8",
+              "set-7"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2217,
+      "views": [
+        {
+          "item": "set-8",
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Mandata",
+          "label-en": "Set Flow",
+          "label-cs": "Nastavení výstupní t.",
+          "step": 1,
+          "min": 5,
+          "max": 85
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-8",
+          "data": [
+            [
+              "temp",
+              "set-8"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2218,
+      "views": [
+        {
+          "item": "set-9",
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Offset Mandata",
+          "label-en": "Offset Flow",
+          "label-cs": "Offset výstupní t.",
+          "step": 1,
+          "min": -15,
+          "max": 15
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-9",
+          "data": [
+            [
+              "temp",
+              "set-9"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2410,
+      "views": [
+        {
+          "item": "weekday-1-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-1-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-1-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-1-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2411,
+      "views": [
+        {
+          "item": "weekday-2-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-2-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-2-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-2-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2412,
+      "views": [
+        {
+          "item": "weekday-3-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-3-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-3-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-3-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2413,
+      "views": [
+        {
+          "item": "weekday-4-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-4-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-4-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-4-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2414,
+      "views": [
+        {
+          "item": "weekday-5-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-5-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-5-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-5-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2415,
+      "views": [
+        {
+          "item": "weekday-6-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-6-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-6-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-6-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2416,
+      "views": [
+        {
+          "item": "weekday-7-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-7-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-7-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-7-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2220,
+      "views": [
+        {
+          "item": "set-1",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Comfort Risc.",
+          "label-en": "Set Comfort Heat",
+          "label-cs": "Nastavení vytápění komfort",
+          "step": 0.1,
+          "min": 15,
+          "max": 35
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-1",
+          "data": [
+            [
+              "temp",
+              "set-1"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2221,
+      "views": [
+        {
+          "item": "set-2",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Eco Risc.",
+          "label-en": "Set Eco Heat",
+          "label-cs": "Nastavení vytápění útlum",
+          "step": 0.1,
+          "min": 5,
+          "max": 25
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-2",
+          "data": [
+            [
+              "temp",
+              "set-2"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2224,
+      "views": [
+        {
+          "item": "set-5",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Comfort Raff.",
+          "label-en": "Set Comfort Cool",
+          "label-cs": "Nastavení chlazení komfort",
+          "step": 0.1,
+          "min": 15,
+          "max": 35
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-5",
+          "data": [
+            [
+              "temp",
+              "set-5"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2225,
+      "views": [
+        {
+          "item": "set-6",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Eco Raff.",
+          "label-en": "Set Eco Cool",
+          "label-cs": "Nastavení chlazení útlum",
+          "step": 0.1,
+          "min": 15,
+          "max": 35
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-6",
+          "data": [
+            [
+              "temp",
+              "set-6"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2226,
+      "views": [
+        {
+          "item": "set-7",
+          "suffix": " %",
+          "return": [
+            "LB",
+            "u8"
+          ],
+          "label-it": "Set Umidità",
+          "label-en": "Set Umidity",
+          "label-cs": "Nastavení vlhkosti",
+          "step": 1,
+          "min": 30,
+          "max": 70
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-7",
+          "data": [
+            [
+              "LB",
+              "u8",
+              "set-7"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2227,
+      "views": [
+        {
+          "item": "set-8",
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Mandata",
+          "label-en": "Set Flow",
+          "label-cs": "Nastavení výstupní t.",
+          "step": 1,
+          "min": 5,
+          "max": 85
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-8",
+          "data": [
+            [
+              "temp",
+              "set-8"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2228,
+      "views": [
+        {
+          "item": "set-9",
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Offset Mandata",
+          "label-en": "Offset Flow",
+          "label-cs": "Offset výstupní t.",
+          "step": 1,
+          "min": -15,
+          "max": 15
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-9",
+          "data": [
+            [
+              "temp",
+              "set-9"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2420,
+      "views": [
+        {
+          "item": "weekday-1-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-1-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-1-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-1-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2421,
+      "views": [
+        {
+          "item": "weekday-2-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-2-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-2-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-2-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2422,
+      "views": [
+        {
+          "item": "weekday-3-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-3-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-3-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-3-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2423,
+      "views": [
+        {
+          "item": "weekday-4-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-4-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-4-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-4-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2424,
+      "views": [
+        {
+          "item": "weekday-5-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-5-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-5-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-5-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2425,
+      "views": [
+        {
+          "item": "weekday-6-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-6-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-6-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-6-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2426,
+      "views": [
+        {
+          "item": "weekday-7-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-7-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-7-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-7-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2230,
+      "views": [
+        {
+          "item": "set-1",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Comfort Risc.",
+          "label-en": "Set Comfort Heat",
+          "label-cs": "Nastavení vytápění komfort",
+          "step": 0.1,
+          "min": 15,
+          "max": 35
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-1",
+          "data": [
+            [
+              "temp",
+              "set-1"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2231,
+      "views": [
+        {
+          "item": "set-2",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Eco Risc.",
+          "label-en": "Set Eco Heat",
+          "label-cs": "Nastavení vytápění útlum",
+          "step": 0.1,
+          "min": 5,
+          "max": 25
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-2",
+          "data": [
+            [
+              "temp",
+              "set-2"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2234,
+      "views": [
+        {
+          "item": "set-5",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Comfort Raff.",
+          "label-en": "Set Comfort Cool",
+          "label-cs": "Nastavení chlazení komfort",
+          "step": 0.1,
+          "min": 15,
+          "max": 35
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-5",
+          "data": [
+            [
+              "temp",
+              "set-5"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2235,
+      "views": [
+        {
+          "item": "set-6",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Eco Raff.",
+          "label-en": "Set Eco Cool",
+          "label-cs": "Nastavení chlazení útlum",
+          "step": 0.1,
+          "min": 15,
+          "max": 35
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-6",
+          "data": [
+            [
+              "temp",
+              "set-6"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2236,
+      "views": [
+        {
+          "item": "set-7",
+          "suffix": " %",
+          "return": [
+            "LB",
+            "u8"
+          ],
+          "label-it": "Set Umidità",
+          "label-en": "Set Umidity",
+          "label-cs": "Nastavení vlhkosti",
+          "step": 1,
+          "min": 30,
+          "max": 70
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-7",
+          "data": [
+            [
+              "LB",
+              "u8",
+              "set-7"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2237,
+      "views": [
+        {
+          "item": "set-8",
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Mandata",
+          "label-en": "Set Flow",
+          "label-cs": "Nastavení výstupní t.",
+          "step": 1,
+          "min": 5,
+          "max": 85
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-8",
+          "data": [
+            [
+              "temp",
+              "set-8"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2238,
+      "views": [
+        {
+          "item": "set-9",
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Offset Mandata",
+          "label-en": "Offset Flow",
+          "label-cs": "Offset výstupní t.",
+          "step": 1,
+          "min": -15,
+          "max": 15
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-9",
+          "data": [
+            [
+              "temp",
+              "set-9"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2430,
+      "views": [
+        {
+          "item": "weekday-1-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-1-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-1-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-1-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2431,
+      "views": [
+        {
+          "item": "weekday-2-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-2-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-2-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-2-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2432,
+      "views": [
+        {
+          "item": "weekday-3-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-3-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-3-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-3-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2433,
+      "views": [
+        {
+          "item": "weekday-4-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-4-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-4-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-4-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2434,
+      "views": [
+        {
+          "item": "weekday-5-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-5-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-5-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-5-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2435,
+      "views": [
+        {
+          "item": "weekday-6-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-6-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-6-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-6-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2436,
+      "views": [
+        {
+          "item": "weekday-7-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-7-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-7-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-7-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2240,
+      "views": [
+        {
+          "item": "set-1",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Comfort Risc.",
+          "label-en": "Set Comfort Heat",
+          "label-cs": "Nastavení vytápění komfort",
+          "step": 0.1,
+          "min": 15,
+          "max": 35
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-1",
+          "data": [
+            [
+              "temp",
+              "set-1"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2241,
+      "views": [
+        {
+          "item": "set-2",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Eco Risc.",
+          "label-en": "Set Eco Heat",
+          "label-cs": "Nastavení vytápění útlum",
+          "step": 0.1,
+          "min": 5,
+          "max": 25
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-2",
+          "data": [
+            [
+              "temp",
+              "set-2"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2244,
+      "views": [
+        {
+          "item": "set-5",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Comfort Raff.",
+          "label-en": "Set Comfort Cool",
+          "label-cs": "Nastavení chlazení komfort",
+          "step": 0.1,
+          "min": 15,
+          "max": 35
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-5",
+          "data": [
+            [
+              "temp",
+              "set-5"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2245,
+      "views": [
+        {
+          "item": "set-6",
+          "decimal": 1,
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Eco Raff.",
+          "label-en": "Set Eco Cool",
+          "label-cs": "Nastavení chlazení útlum",
+          "step": 0.1,
+          "min": 15,
+          "max": 35
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-6",
+          "data": [
+            [
+              "temp",
+              "set-6"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2246,
+      "views": [
+        {
+          "item": "set-7",
+          "suffix": " %",
+          "return": [
+            "LB",
+            "u8"
+          ],
+          "label-it": "Set Umidità",
+          "label-en": "Set Umidity",
+          "label-cs": "Nastavení vlhkosti",
+          "step": 1,
+          "min": 30,
+          "max": 70
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-7",
+          "data": [
+            [
+              "LB",
+              "u8",
+              "set-7"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2247,
+      "views": [
+        {
+          "item": "set-8",
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Set Mandata",
+          "label-en": "Set Flow",
+          "label-cs": "Nastavení výstupní t.",
+          "step": 1,
+          "min": 5,
+          "max": 85
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-8",
+          "data": [
+            [
+              "temp",
+              "set-8"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2248,
+      "views": [
+        {
+          "item": "set-9",
+          "suffix": " °C",
+          "return": [
+            "temp"
+          ],
+          "label-it": "Offset Mandata",
+          "label-en": "Offset Flow",
+          "label-cs": "Offset výstupní t.",
+          "step": 1,
+          "min": -15,
+          "max": 15
+        }
+      ],
+      "commands": [
+        {
+          "item": "set-9",
+          "data": [
+            [
+              "temp",
+              "set-9"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2440,
+      "views": [
+        {
+          "item": "weekday-1-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-1-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-1-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-1-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2441,
+      "views": [
+        {
+          "item": "weekday-2-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-2-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-2-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-2-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2442,
+      "views": [
+        {
+          "item": "weekday-3-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-3-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-3-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-3-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2443,
+      "views": [
+        {
+          "item": "weekday-4-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-4-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-4-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-4-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2444,
+      "views": [
+        {
+          "item": "weekday-5-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-5-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-5-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-5-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2445,
+      "views": [
+        {
+          "item": "weekday-6-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-6-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-6-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-6-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2446,
+      "views": [
+        {
+          "item": "weekday-7-cal",
+          "return": [
+            "LB",
+            "u8"
+          ]
+        },
+        {
+          "item": "weekday-7-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-7-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-7-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2491,
+      "views": [
+        {
+          "item": "weekday-2-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-2-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-2-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2492,
+      "views": [
+        {
+          "item": "weekday-3-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-3-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-3-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2493,
+      "views": [
+        {
+          "item": "weekday-4-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-4-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-4-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2494,
+      "views": [
+        {
+          "item": "weekday-5-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-5-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-5-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2495,
+      "views": [
+        {
+          "item": "weekday-6-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-6-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-6-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2496,
+      "views": [
+        {
+          "item": "weekday-7-cal",
+          "return": [
+            "u16"
+          ]
+        }
+      ],
+      "commands": [
+        {
+          "item": "weekday-7-cal",
+          "data": [
+            [
+              "u16",
+              "weekday-7-cal"
+            ]
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "action": "read"
+        },
+        {
+          "action": "write"
+        }
+      ]
+    },
+    {
+      "pdu": 2310,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2311,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2312,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2313,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2314,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2315,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2316,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2317,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2320,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2321,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2322,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2323,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2324,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2325,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2326,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2327,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2330,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2331,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2332,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2333,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2334,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2335,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2336,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2337,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2340,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2341,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2342,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2343,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2344,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2345,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2346,
+      "views": [],
+      "commands": [],
+      "messages": []
+    },
+    {
+      "pdu": 2347,
+      "views": [],
+      "commands": [],
+      "messages": []
+    }
+  ],
+  "lbl_summary": {
+    "anomalies_count": 115
+  }
+}
